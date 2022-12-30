@@ -8,10 +8,7 @@ const Post = () => {
         <div className="flex items-center p-3">
           <div className="flex w-full items-center">
             <div className="mr-3 h-8 w-8">
-              <img
-                className="rounded-full"
-                src="/public/kiryl_misachenka.jpg"
-              />
+              <img className="rounded-full" src="/kiryl_misachenka.jpg" />
             </div>
             <div className="text-sm font-semibold">
               <p>Username</p>
