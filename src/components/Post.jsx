@@ -113,7 +113,7 @@ const Post = () => {
               <input
                 type="text"
                 placeholder="Add a comment..."
-                className="text-gray-base w-full text-sm outline-0"
+                className="bg-gray-100 text-sm outline-0"
               />
             </div>
             <button className="text-sm font-bold text-[#0095f6]">Post</button>
