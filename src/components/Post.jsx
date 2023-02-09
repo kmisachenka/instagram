@@ -1,22 +1,25 @@
 import React from 'react';
 import Comment from './Comment.jsx';
 
-const Post = () => {
+const Post = ({ post }) => {
+  const commentsElements = post.comments.map((c) => (
+    <Comment key={c.userId} userName={c.userName} commentText={c.comment} />
+  ));
   return (
     <div className="">
       <div className="my-3 rounded-lg border">
         <div className="flex items-center p-3">
           <div className="flex w-full items-center">
             <div className="mr-3 h-8 w-8">
-              <img className="rounded-full" src="/kiryl_misachenka.jpg" />
+              <img className="rounded-full" src={post.userAvatar} />
             </div>
             <div className="text-sm font-semibold">
-              <p>Username</p>
+              <p>{post.userName}</p>
             </div>
           </div>
         </div>
         <div>
-          <img src="https://media.nga.gov/iiif/fdb293a6-1424-412c-a7b6-8addde46aa55/full/full/0/default.jpg?attachment_filename=saint_george_and_the_dragon_1937.1.26.jpg" />
+          <img src={post.imageSrc} />
         </div>
         <div className="m-3">
           <div>
@@ -89,24 +92,19 @@ const Post = () => {
               </div>
             </div>
             <div className="mt-2 text-sm font-bold leading-[18px]">
-              <p>9 likes</p>
+              <p>{post.likes}</p>
             </div>
           </div>
           <div className="mt-2 flex items-center">
             <p className="mr-2 whitespace-nowrap text-sm font-bold leading-[18px]">
-              kiryl_misachenka
+              {post.userName}
             </p>
             <p className="truncate">Saint George and the Dragon</p>
           </div>
           <div>
-            <div className="flex items-center truncate">
-              <Comment
-                nickName="vikulia_ryj"
-                text="Would you mind if I used this picture?"
-              />
-            </div>
+            <div className="items-center truncate">{commentsElements}</div>
           </div>
-          <p className="my-2 text-xs text-gray-400">22 hours ago</p>
+          <p className="my-2 text-xs text-gray-400">{post.dateCreated}</p>
           <div className="-mx-3 my-3 border-t"></div>
           <form className="flex justify-between p-1">
             <div className="flex">
